@@ -41,13 +41,14 @@ pipeline{
             }
         }
         stage('Deploy'){
-            steps{
-                script{
-                    sh """
-                      echo "Hello, this is Deploy"
-                    """
-                }
+           input {
+            message "should we continue"
+            ok "Yes, we should."
+            submitter "alice, bob"
+            parameters {
+                string(name: 'PERSON', defaultValue: "Ajay Reddy")
             }
+           }
         } 
     }
     post {
