@@ -3,6 +3,7 @@ pipeline{
     environment {
         PROJECT = 'expense'
         COMPONENT = 'BACKEND'
+        DEPLOY_TO = 'QA'
     }
     options {
         disableConcurrentBuilds()
@@ -41,14 +42,17 @@ pipeline{
             }
         }
         stage('Deploy'){
-           input {
-            message "should we continue"
-            ok "Yes, we should."
-            submitter "alice, bob"
-            parameters {
-                string(name: 'PERSON', defaultValue: "Ajay REDDY")
-            }
-           }
+        //    input {
+        //     message "should we continue"
+        //     ok "Yes, we should."
+        //     submitter "alice, bob"
+        //     parameters {
+        //         string(name: 'PERSON', defaultValue: "Ajay REDDY")
+        //     }
+        //    }
+         when {
+            environment name: 'DEPLOY_TO', value: 'production'
+         }
            steps{
                 script{
                     sh """
