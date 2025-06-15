@@ -46,7 +46,7 @@ pipeline{
             ok "Yes, we should."
             submitter "alice, bob"
             parameters {
-                string(name: 'PERSON', defaultValue: "Ajay Reddy")
+                string(name: 'PERSON', defaultValue: "Ajay REDDY")
             }
            }
         } 
