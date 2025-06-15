@@ -49,6 +49,13 @@ pipeline{
                 string(name: 'PERSON', defaultValue: "Ajay REDDY")
             }
            }
+           steps{
+                script{
+                    sh """
+                      echo "Hello, this is Deploy"
+                    """
+                }
+            }
         } 
     }
     post {
